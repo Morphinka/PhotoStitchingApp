@@ -3,9 +3,6 @@ from tkinter import filedialog
 from pathlib import Path
 import cv2
 import numpy as np
-#from tkinter import Text
-#from tkinter import Label
-#from tkinter import *
 from tkinter import messagebox, HORIZONTAL
 from tkinter.ttk import Progressbar
 
@@ -20,24 +17,16 @@ class simpleapp_tk(Tkinter.Tk):
         
         
     def initialize(self):
-
-        #button = Tkinter.Button(self,text=u" ",command=self.ending)
-        #here is the third button to run the script, the command isn't right
-        button2 = Tkinter.Button(self,text=u"Run script",command=self.OnButtonClick2)
-        button2.grid(row=0)
-        #button.pack(side='bottom',padx=15,pady=15) 
-        # button2.pack(side='bottom',padx=15,pady=15) 
+        button = Tkinter.Button(self,text=u"Run script",command=self.OnButtonClick)
+        button.grid(row=0)
         
-
-    #def OnButtonClick(self):
-        #x = filedialog.askdirectory(title='Please select data directory')
-        #print(x)   
         
-    def OnButtonClick2(self):
+    def OnButtonClick(self):
         folder_selected = filedialog.askdirectory(title='Please select data directory')
+        
         self.progress.grid(row=1)
         self.update()
-        # self.progress.pack()
+        
         image = []
         entries = Path(folder_selected)
         x0 = []
@@ -90,18 +79,10 @@ class simpleapp_tk(Tkinter.Tk):
         self.update_idletasks()
         
         messagebox.showinfo("Information","Stitched photo is in the chosen directory ;)")
+                
+        self.destroy()
         
-        # ZAMKNĄĆ APLIKACJĘ!
-        
-    #def ending(self):
-        
-        #button_text = Tkinter.StringVar()
-       # button = Tkinter.Button(root, textvariable=btn_text, command=update_btn_text)
-       # button_text.set("a")
-
-       # button.pack()
-
-                    
+                      
 if __name__ == "__main__":
     app = simpleapp_tk()
     app.title('my application')
