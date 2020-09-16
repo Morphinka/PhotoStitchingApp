@@ -57,8 +57,8 @@ class simpleapp_tk(Tkinter.Tk):
                 
         images.sort()
         
-        x_max = max(x0)
-        y_max = max(y0)
+        x_max = max(y0)
+        y_max = max(x0)
         rows_array = []
             
         for i in range(y_max):
